@@ -19,3 +19,6 @@ lsmod:kmod
 bc
 qemu-nbd:qemu-utils
 kpartx
+bison
+flex
+libssl
