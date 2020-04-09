@@ -21,4 +21,3 @@ qemu-nbd:qemu-utils
 kpartx
 bison
 flex
-libssl
