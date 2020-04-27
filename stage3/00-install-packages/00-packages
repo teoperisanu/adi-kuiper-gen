@@ -13,3 +13,4 @@ obconf
 arandr
 libcamera-tools
 libcamera-apps
+libgtk-3-dev
