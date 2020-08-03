@@ -77,23 +77,27 @@ ${DOCKER} build -t pi-gen "${DIR}"
 if [ "${CONTAINER_EXISTS}" != "" ]; then
 	trap 'echo "got CTRL+C... please wait 5s" && ${DOCKER} stop -t 5 ${CONTAINER_NAME}_cont' SIGINT SIGTERM
 	time ${DOCKER} run --rm --privileged \
+		-v /var/lib/jenkins/workspace/Kuiper/deploy:/pi-gen/deploy \
+		-v /var/lib/jenkins/workspace/Kuiper/work:/pi-gen/work \
 		--volume "${CONFIG_FILE}":/config:ro \
 		-e "GIT_HASH=${GIT_HASH}" \
 		--volumes-from="${CONTAINER_NAME}" --name "${CONTAINER_NAME}_cont" \
 		pi-gen \
 		bash -e -o pipefail -c "dpkg-reconfigure qemu-user-static &&
-	cd /pi-gen; ./build.sh ${BUILD_OPTS} &&
-	rsync -av work/*/build.log deploy/" &
+		cd /pi-gen; ./build.sh ${BUILD_OPTS} &&
+		rsync -av work/*/build.log deploy/ &&  chown -R $(id -u):$(id -g) ./work/ ./deploy/" &
 	wait "$!"
 else
 	trap 'echo "got CTRL+C... please wait 5s" && ${DOCKER} stop -t 5 ${CONTAINER_NAME}' SIGINT SIGTERM
 	time ${DOCKER} run --name "${CONTAINER_NAME}" --privileged \
+		-v /var/lib/jenkins/workspace/Kuiper/deploy:/pi-gen/deploy \
+		-v /var/lib/jenkins/workspace/Kuiper/work:/pi-gen/work \
 		--volume "${CONFIG_FILE}":/config:ro \
 		-e "GIT_HASH=${GIT_HASH}" \
 		pi-gen \
 		bash -e -o pipefail -c "dpkg-reconfigure qemu-user-static &&
-	cd /pi-gen; ./build.sh ${BUILD_OPTS} &&
-	rsync -av work/*/build.log deploy/" &
+		cd /pi-gen; ./build.sh ${BUILD_OPTS} &&
+                rsync -av work/*/build.log deploy/ && chown -R $(id -u):$(id -g) ./work/ ./deploy/" &
 	wait "$!"
 fi
 echo "copying results from deploy/"
