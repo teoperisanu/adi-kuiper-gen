@@ -85,7 +85,7 @@ if [ "${CONTAINER_EXISTS}" != "" ]; then
 		pi-gen \
 		bash -e -o pipefail -c "dpkg-reconfigure qemu-user-static &&
 		cd /pi-gen; ./build.sh ${BUILD_OPTS} &&
-		rsync -av work/*/build.log deploy/ &&  chown -R $(id -u):$(id -g) ./work/ ./deploy/" &
+		rsync -av work/*/build.log deploy/" &
 	wait "$!"
 else
 	trap 'echo "got CTRL+C... please wait 5s" && ${DOCKER} stop -t 5 ${CONTAINER_NAME}' SIGINT SIGTERM
@@ -97,7 +97,7 @@ else
 		pi-gen \
 		bash -e -o pipefail -c "dpkg-reconfigure qemu-user-static &&
 		cd /pi-gen; ./build.sh ${BUILD_OPTS} &&
-                rsync -av work/*/build.log deploy/ && chown -R $(id -u):$(id -g) ./work/ ./deploy/" &
+                rsync -av work/*/build.log deploy/" &
 	wait "$!"
 fi
 echo "copying results from deploy/"
