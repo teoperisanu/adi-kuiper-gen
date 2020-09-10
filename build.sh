@@ -229,6 +229,7 @@ export PUBKEY_SSH_FIRST_USER
 export CLEAN
 export IMG_NAME
 export APT_PROXY
+export EXTRA_BOOT
 
 export STAGE
 export STAGE_DIR
