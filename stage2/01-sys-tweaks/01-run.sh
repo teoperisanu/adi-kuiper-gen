@@ -18,6 +18,8 @@ install -d				"${ROOTFS_DIR}/home/${FIRST_USER_NAME}/.vnc"
 install -m 644 files/passwd		"${ROOTFS_DIR}/home/${FIRST_USER_NAME}/.vnc/"
 
 install -m 644 "${ROOTFS_DIR}/usr/share/doc/avahi-daemon/examples/ssh.service" "${ROOTFS_DIR}/etc/avahi/services/"
+#Enable root login for ssh
+sed -i 's/.*PermitRootLogin.*/PermitRootLogin yes/g' "${ROOTFS_DIR}/etc/ssh/sshd_config"
 
 if [ -n "${PUBKEY_SSH_FIRST_USER}" ]; then
 	install -v -m 0700 -o 1000 -g 1000 -d "${ROOTFS_DIR}"/home/"${FIRST_USER_NAME}"/.ssh
