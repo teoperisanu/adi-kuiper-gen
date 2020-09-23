@@ -98,4 +98,6 @@ else
 	cp "$IMG_FILE" "$DEPLOY_DIR"
 fi
 
+chmod 666 "$DEPLOY_DIR/$IMG_FILE"
+
 cp "$INFO_FILE" "$DEPLOY_DIR"
