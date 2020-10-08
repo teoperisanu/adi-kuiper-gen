@@ -98,6 +98,8 @@ else
 	cp "$IMG_FILE" "$DEPLOY_DIR"
 fi
 
-chmod 666 "$DEPLOY_DIR/$IMG_FILE"
+# It looks that sometimes below file is not found...just print it for now
+# chmod 666 "$DEPLOY_DIR/$IMG_FILE"
+echo -e "\n\nFound image is: $(find -name *.zip)"
 
 cp "$INFO_FILE" "$DEPLOY_DIR"
