@@ -87,7 +87,7 @@ EOF
 		ROOT_FEATURES="^$FEATURE,$ROOT_FEATURES"
 	fi
 	done
-	mkdosfs -n boot -F 32 -v "$BOOT_DEV" > /dev/null
+	mkdosfs -n BOOT -F 32 -v "$BOOT_DEV" > /dev/null
 	mkfs.ext4 -L rootfs -O "$ROOT_FEATURES" "$ROOT_DEV" > /dev/null
 
 	mount -v "$ROOT_DEV" "${ROOTFS_DIR}" -t ext4
