@@ -152,6 +152,17 @@ install_scopy() {
 		flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 		flatpak install Scopy.flatpak --assumeyes
 	}
+	echo "
+	[Desktop Entry]
+	Version=1.1
+	Type=Application
+	Encoding=UTF-8
+	Name=Scopy
+	Comment=ADI
+	Exec=flatpak run org.adi.Scopy
+	Terminal=false
+	Categories=Graphics" > /usr/share/applications/Scopy.desktop
+	echo "alias scopy='flatpak run org.adi.Scopy'" >> ~/.bashrc
 }
 
 install_scopy
