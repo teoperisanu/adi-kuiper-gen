@@ -9,7 +9,7 @@ KERNEL_IMG_PI3=kernel7.img
 KERNEL_IMG_PI4=kernel7l.img
 SCRIPTS_DIR=wiki-scripts
 LINUX_DIR="${1:-linux-adi}"
-BRANCH=rpi-5.4.y
+BRANCH=rpi-5.10.y
 
 build_linux() {
 
