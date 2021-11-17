@@ -47,9 +47,9 @@ libpthread-stubs0-dev
 sdcc
 guile-2.2-dev
 ccache
-libpython3.7-dev
+libpython3-dev
 libcppunit-dev
-libboost1.67-dev
+libboost-dev
 libgsl0-dev
 libusb-dev
 alsa-base
@@ -68,7 +68,7 @@ libzip-dev
 libglib2.0-dev
 libsigc++-2.0-dev
 libglibmm-2.4-dev
-qt5-default
+qtbase5-dev
 qttools5-dev
 qttools5-dev-tools
 curl
