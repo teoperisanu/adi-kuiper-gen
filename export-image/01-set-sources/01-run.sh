@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 rm -f "${ROOTFS_DIR}/etc/apt/apt.conf.d/51cache"
-find "${ROOTFS_DIR}/var/lib/apt/lists/" -type f -delete
+find "${ROOTFS_DIR}/var/lib/apt/lists/" -type f -delete 2> /dev/null
 on_chroot << EOF
 #apt-get update
 #apt-get -y dist-upgrade
