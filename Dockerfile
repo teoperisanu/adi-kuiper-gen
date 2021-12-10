@@ -10,6 +10,7 @@ RUN apt-get -y update && \
         libarchive-tools libcap2-bin rsync grep udev xz-utils curl xxd file kmod bc\
         binfmt-support ca-certificates qemu-utils kpartx \
 	    bison flex libssl-dev  build-essential libgtk-3-dev gcc-arm-linux-gnueabihf \
+        u-boot-tools gcc-aarch64-linux-gnu \
     && rm -rf /var/lib/apt/lists/*
 
 COPY . /pi-gen/
