@@ -78,7 +78,7 @@ The following environment variables are supported:
    Setting to '1' enables the QEMU mode - creating an image that can be mounted via QEMU for an emulated
    environment. These images include "-qemu" in the image file name.
 
- * `LOCALE_DEFAULT` (Default: "en_GB.UTF-8" )
+ * `LOCALE_DEFAULT` (Default: "en_US.UTF-8" )
 
    Default system locale.
 
@@ -86,7 +86,7 @@ The following environment variables are supported:
 
    Setting the hostname to the specified value.
 
- * `KEYBOARD_KEYMAP` (Default: "gb" )
+ * `KEYBOARD_KEYMAP` (Default: "us" )
 
    Default keyboard keymap.
 
@@ -94,7 +94,7 @@ The following environment variables are supported:
    keyboard-configuration` and look at the
    `keyboard-configuration/xkb-keymap` value.
 
- * `KEYBOARD_LAYOUT` (Default: "English (UK)" )
+ * `KEYBOARD_LAYOUT` (Default: "English (US)" )
 
    Default keyboard layout.
 
